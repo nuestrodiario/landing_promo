@@ -1,10 +1,12 @@
 import styled, {css} from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+//Archivo para dar estilos y componentizar
 const colores = {
     borde: "#0075FF",
-    error: "#bb2929",
-    exito: "#1ed12d"
+    error: "#d50000",
+    error2: "#fff",
+    exito: "#2a90f7"
 }
 
 const Formulario = styled.form`
@@ -22,9 +24,11 @@ const Label = styled.label`
     font-weight: 700;
     min-height: 40px;
     padding: 10px;
-
+    ${props => props.valido === 'true' && css`
+        color: ${colores.exito}
+    `}
     ${props => props.valido === 'false' && css`
-        color: ${colores.error}
+        color: ${colores.error2}
     `}
 
 `;
@@ -50,7 +54,7 @@ const Input = styled.input`
         box-shadow: 3px 0px 30px rgba(163, 163, 163, 0.4);
     }
     ${props => props.valido === 'true' && css`
-        border: 3px solid transparent;
+        border: 3px solid ${colores.exito};
     `}
     ${props => props.valido === 'false' && css`
         border: 3px solid ${colores.error} !important;
@@ -60,7 +64,7 @@ const Input = styled.input`
 const LeyendaError = styled.p`
     font-size: 15px;
     margin-bottom: 0;
-    color: ${colores.error};
+    color: ${colores.error2};
     display: none;
 
     ${props => props.valido === 'true' && css`
@@ -74,7 +78,7 @@ const LeyendaError = styled.p`
 const IconoValidacion = styled(FontAwesomeIcon)`
     position: absolute;
     right: 10px;
-    bottom: 47px;
+    bottom: 15px;
     z-index: 100;
     font-size: 16px;
     color: ${colores.borde};
@@ -124,7 +128,8 @@ const MensajeExito = styled.p`
 
 const MensajeError = styled.div`
     height: 40px;
-    line-height: 45px;
+    line-height: 20px;
+    font-size: 12px;
     background: ${colores.error};
     padding: 0px 15px;
     border-radius: 3px;

@@ -29,7 +29,7 @@ main {
 }
   
 .App-header {
-  background: url('nodal.jpg');
+  background: url('sanz2.jpg');
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -39,7 +39,7 @@ main {
   color: white;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: right;
+  background-position: center;
 }
   
   .App-link {

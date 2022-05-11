@@ -11,10 +11,8 @@ const ComponenteInput = ({estado, cambiarEstado, tipo, label, placeholder, name,
         if(expresionRegular){
             if(expresionRegular.test(estado.campo)){
                 cambiarEstado({...estado, valido: 'true'});
-                console.log("input correcto");
             }else{
                 cambiarEstado({...estado, valido: 'false'});
-                console.log("input incorrecto");
             }
         }
     }
